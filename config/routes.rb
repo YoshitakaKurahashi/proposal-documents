@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  root to: ""
+  get 'proposals/index'
+  root to: "proposals#index"
 end
