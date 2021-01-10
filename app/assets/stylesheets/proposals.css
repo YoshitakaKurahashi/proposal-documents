@@ -1,0 +1,75 @@
+/* --------------ヘッダー画面------------------ */
+.header {
+  background-color: #c5e0e4;
+  height: 100px;
+}
+.nav {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.list-right{
+  display: flex;
+  list-style: none;
+  align-items: flex-end;
+}
+.rogo {
+  font-size: 25px;
+  font-family: 'Londrina Shadow', cursive;
+}
+
+
+/* --------------サイド画面------------------ */
+.side-bar {
+  background-color: #f8f9fa;
+  height: calc(100vh - 100px);
+}
+.side {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+}
+.occupation {
+  padding: 40px 0px 0px;
+}
+.occupation-name a {
+  text-decoration: none;
+  color: cadetblue;
+  font-size: 20px;
+}
+.proposal-btn {
+  margin: 40px 0px 150px 0;
+}
+.footer {
+  background-color: rgb(246, 248, 246);
+  height: 100px;
+  width: 100%;
+  color: cadetblue;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* --------------メイン画面------------------ */
+.main {
+  height: calc(100vh - 100px);
+  overflow: scroll;
+}
+.occupation-name {
+  color: cadetblue;
+  font-size: 20px;
+}
+.card {
+  color: cadetblue;
+}
+.card-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* --------------提案書登録画面------------------ */
+.form {
+  color: cadetblue;
+}
+
