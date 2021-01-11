@@ -13,4 +13,7 @@ class User < ApplicationRecord
   validates :password, format: { with: VALID_PASSWORD_REGEX }
   validates :phone_number, format: { with: /\A\d{10,11}\z/ }
   validates :occupation_id, :position_id, numericality: { other_than: 1 }
+
+  has_many :user_proposals
+  has_many :proposals, through: :user_proposals
 end
