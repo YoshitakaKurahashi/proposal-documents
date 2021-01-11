@@ -3,6 +3,10 @@ class ProposalsController < ApplicationController
   end
 
   def new
+    @proposal = Proposal.new
+  end
+
+  def create
   end
 
 end

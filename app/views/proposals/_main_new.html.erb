@@ -1,59 +1,61 @@
-<form class="form">
-  <div class="mb-3">
-    <label for="exampleFormControlTextarea1" class="form-label">Title:</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
-  </div>
-  <div class="mt-3 weight-bold-text">
-    決裁者の選択（1人目）
-    <span class="indispensable">必須</span>
-  </div>
-  <select class="select-box" id="item-category" name="item[category_id]"><option value="0">---</option>
-    <option value="1">佐藤御飯</option>
-    <option value="2">丹二郎</option>
-    <option value="3">茶海茶会</option>
-    <option value="4">斎藤一</option>
-    <option value="5">菅総理</option>
-  </select>
+<%= form_with model: @proposal, local: true do |f| %>
+  <div class="form">
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Title:</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+    </div>
     <div class="mt-3 weight-bold-text">
-    決裁者の選択（2人目）
-    <span class="indispensable">必須</span>
+      決裁者の選択（1人目）
+      <span class="indispensable">必須</span>
+    </div>
+      <select name="proposal[user_ids][]">
+        <option value="">1人目の決裁者を選択してください</option>
+        <% User.where.not(id: current_user.id).each do |user| %>
+          <option value=<%= user.id %>><%= user.name %><%= "　(#{user.occupation.name}:　#{user.position.name})" %></option>
+        <% end %>
+      </select>
+      <input name="proposal[user_ids][]" type="hidden" value=<%= current_user.id %>>
+      <div class="mt-3 weight-bold-text">
+      決裁者の選択（2人目）
+      <span class="indispensable">必須</span>
+    </div>
+    <select name="proposal[user_ids][]">
+        <option value="">2人目の決裁者を選択してください</option>
+        <% User.where.not(id: current_user.id).each do |user| %>
+          <option value=<%= user.id %>><%= user.name %><%= "　(#{user.occupation.name}:　#{user.position.name})" %></option>
+        <% end %>
+      </select>
+      <input name="proposal[user_ids][]" type="hidden" value=<%= current_user.id %>>
+    <div class="mt-3 weight-bold-text">
+      決裁者の選択（3人目）
+      <span class="indispensable">必須</span>
+    </div>
+    <select name="proposal[user_ids][]">
+        <option value="">3人目の決裁者を選択してください</option>
+        <% User.where.not(id: current_user.id).each do |user| %>
+          <option value=<%= user.id %>><%= user.name %><%= "　(#{user.occupation.name}:　#{user.position.name})" %></option>
+        <% end %>
+      </select>
+      <input name="proposal[user_ids][]" type="hidden" value=<%= current_user.id %>>
+    <div class="mt-3 weight-bold-text">
+      決裁者の選択（4人目）
+      <span class="indispensable">必須</span>
+    </div>
+    <select name="proposal[user_ids][]">
+        <option value="">4人目の決裁者を選択してください</option>
+        <% User.where.not(id: current_user.id).each do |user| %>
+          <option value=<%= user.id %>><%= user.name %><%= "　(#{user.occupation.name}:　#{user.position.name})" %></option>
+        <% end %>
+      </select>
+      <input name="proposal[user_ids][]" type="hidden" value=<%= current_user.id %>>
+    <div class="mt-4 input-group mb-3">
+    <label class="input-group-text" for="inputGroupFile01">Upload</label>
+    <input type="file" class="form-control" id="inputGroupFile01">
+    </div>
+    <%# <label class="form-image">
+      <span class="image-file">PDF</span>
+      <input type="file" class="hidden">
+    </label> %>
+    <button type="submit" class="mt-4 btn btn-outline-secondary">登録</button>
   </div>
-  <select class="select-box" id="item-category" name="item[category_id]"><option value="0">---</option>
-    <option value="1">佐藤御飯</option>
-    <option value="2">丹二郎</option>
-    <option value="3">茶海茶会</option>
-    <option value="4">斎藤一</option>
-    <option value="5">菅総理</option>
-  </select>
-  <div class="mt-3 weight-bold-text">
-    決裁者の選択（3人目）
-    <span class="indispensable">必須</span>
-  </div>
-  <select class="select-box" id="item-category" name="item[category_id]"><option value="0">---</option>
-    <option value="1">佐藤御飯</option>
-    <option value="2">丹二郎</option>
-    <option value="3">茶海茶会</option>
-    <option value="4">斎藤一</option>
-    <option value="5">菅総理</option>
-  </select>
-  <div class="mt-3 weight-bold-text">
-    決裁者の選択（4人目）
-    <span class="indispensable">必須</span>
-  </div>
-  <select class="select-box" id="item-category" name="item[category_id]"><option value="0">---</option>
-    <option value="1">佐藤御飯</option>
-    <option value="2">丹二郎</option>
-    <option value="3">茶海茶会</option>
-    <option value="4">斎藤一</option>
-    <option value="5">菅総理</option>
-  </select>
-  <div class="mt-4 input-group mb-3">
-  <label class="input-group-text" for="inputGroupFile01">Upload</label>
-  <input type="file" class="form-control" id="inputGroupFile01">
-  </div>
-  <%# <label class="form-image">
-    <span class="image-file">PDF</span>
-    <input type="file" class="hidden">
-  </label> %>
-  <button type="submit" class="mt-4 btn btn-outline-secondary">登録</button>
-</form>
+<% end %>
