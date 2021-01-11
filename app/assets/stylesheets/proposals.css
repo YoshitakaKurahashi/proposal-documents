@@ -73,3 +73,8 @@
   color: cadetblue;
 }
 
+/* --------------ログイン・ログアウト・新規登録画面------------------ */
+.user-btn {
+  text-decoration: none;
+  color: #f8f9fa;
+}
