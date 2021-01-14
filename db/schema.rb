@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 2021_01_11_113627) do
   end
 
   create_table "user_proposals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
     t.bigint "proposal_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["proposal_id"], name: "index_user_proposals_on_proposal_id"
