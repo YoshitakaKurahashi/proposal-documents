@@ -35,6 +35,13 @@ ActiveRecord::Schema.define(version: 2021_01_11_113627) do
 
   create_table "proposals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
+    t.string "detail", null: false
+    t.date "term_start", null: false
+    t.date "term_end", null: false
+    t.string "target_group", null: false
+    t.string "numeric", null: false
+    t.integer "budget", null: false
+    t.string "payment", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
