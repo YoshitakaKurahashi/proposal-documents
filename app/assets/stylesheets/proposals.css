@@ -88,19 +88,12 @@
 .show-header1 {
   height: 130px;
 }
-.check-box1 {
+.check-box {
   width: 1px;
   height: 20px;
   border: 1px solid cadetblue;
   color: cadetblue;
-  font-size: 2px;
-  text-align: center;
-}
-.check-box2 {
-  width: 1px;
-  height: 40px;
-  border: 1px solid cadetblue;
-  color: cadetblue;
+  font-size: 4px;
   text-align: center;
 }
 .show-header2 {

@@ -26,7 +26,7 @@ class ProposalsController < ApplicationController
     @proposal = Proposal.find(params[:id])
   end
   
-  def updata
+  def update
     @proposal = Proposal.find(params[:id])
     if @proposal.update(proposal_params)
       redirect_to proposal_path

@@ -3,8 +3,8 @@
     <div class="col-md-3 mt-3">
       法人営業部 第3チーム
     </div>
-    <div class="col-md-3 mt-3">
-      作成者：<%= @proposal.users[0].name%>さん
+    <div class="col-md-6 mt-3">
+      作成者：<%= @proposal.users[0].name%> さん
     </div>
   </div>
   <div class="row">
@@ -12,30 +12,61 @@
       <table class="mt-2 table table-bordered">
         <tbody>
           <tr>
-            <td class="col-3 check-box1"><%= @proposal.users[1].position.name %></td>
-            <td class="col-3 check-box1"><%= @proposal.users[2].position.name %></td>
-            <td class="col-3 check-box1"><%= @proposal.users[3].position.name %></td>
-            <td class="col-3 check-box1"><%= @proposal.users[4].position.name %></td>
+            <td class="col-3 check-box">
+              <% if @proposal.users[1] %>
+                <%= @proposal.users[1].position.name %>
+              <% end %>
+            </td>
+            <td class="col-3 check-box">
+              <% if @proposal.users[2] %>
+                <%= @proposal.users[2].position.name %>
+              <% end %>
+            </td>
+            <td class="col-3 check-box">
+              <% if @proposal.users[3] %>
+                <%= @proposal.users[3].position.name %>
+              <% end %>
+            </td>
+            <td class="col-3 check-box">
+              <% if @proposal.users[4] %>
+                <%= @proposal.users[4].position.name %>
+              <% end %>
+            </td>
           </tr>
           <tr>
-            <td class="col-3 check-box1"><%= @proposal.users[1].name %></td>
-            <td class="col-3 check-box1"><%= @proposal.users[2].name %></td>
-            <td class="col-3 check-box1"><%= @proposal.users[3].name %></td>
-            <td class="col-3 check-box1"><%= @proposal.users[4].name %></td>
-          </tr>
+            <td class="col-3 check-box">
+              <% if @proposal.users[1] %>
+                <%= @proposal.users[1].name %>
+              <% end %>
+            </td>
+            <td class="col-3 check-box">
+              <% if @proposal.users[2] %>
+                <%= @proposal.users[2].name %>
+              <% end %>
+            </td>
+            <td class="col-3 check-box">
+              <% if @proposal.users[3] %>
+                <%= @proposal.users[3].name %>
+              <% end %>
+            </td>
+            <td class="col-3 check-box">
+              <% if @proposal.users[4] %>
+                <%= @proposal.users[4].name %></td>
+              <% end %>
+            </tr>
           <tr>
-            <td class="col-3 check-box2">未</td>
-            <td class="col-3 check-box2">未</td>
-            <td class="col-3 check-box2">完了</td>
-            <td class="col-3 check-box2">完了</td>
+            <td class="col-3 check-box">未</td>
+            <td class="col-3 check-box">未</td>
+            <td class="col-3 check-box">完了</td>
+            <td class="col-3 check-box">完了</td>
           </tr>
         </tbody>
       </table>
     </div>
     <div class="col-md-7 show-header2">
       <% if user_signed_in? && current_user.id == @proposal.users[0].id %>
-        <button type="button" class="mx-2 btn btn-light"><%= link_to "編集", , class: "user-btn" %></button>
-        <button type="button" class="mx-2 btn btn-light">削除</button>
+        <button type="button" class="mx-2 btn btn-secondary"><%= link_to "編集", edit_proposal_path, class: "user-btn" %></button>
+        <button type="button" class="mx-2 btn btn-secondary">削除</button>
       <% end %>
       <button type="button" class="mx-2 btn btn-secondary"><%= link_to "戻る", root_path, class: "user-btn" %></button>
     </div>
