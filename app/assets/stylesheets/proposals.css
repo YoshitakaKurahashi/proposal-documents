@@ -67,6 +67,10 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+.proposal-tag {
+  text-decoration: none;
+  color: cadetblue;
+}
 
 /* --------------提案書登録画面------------------ */
 .form {

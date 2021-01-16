@@ -1,5 +1,7 @@
 class ProposalsController < ApplicationController
+
   def index
+    @proposals = Proposal.all.order('created_at DESC')
   end
 
   def new
@@ -8,12 +10,16 @@ class ProposalsController < ApplicationController
 
   def create
     @proposal = Proposal.new(proposal_params)
-    binding.pry
+    # binding.pry
     if @proposal.save
       redirect_to root_path
     else
       render :new
     end
+  end
+
+  def show
+    @proposal = Proposal.find(params[:id])
   end
 
   private

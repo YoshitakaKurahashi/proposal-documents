@@ -20,9 +20,16 @@
 
 ## proposal テーブル
 
-| Column | Type   | Options     |
-| ------ | ------ | ----------- |
-| title  | string | null: false |
+| Column       | Type    | Options      |
+| ------------ | --------| ------------ |
+| title        | string  | null: false  |
+| detail       | string  | null: false  |
+| term_start   | date    | null: false  |
+| term_end     | date    | null: false  |
+| target_group | string  | null: false  |
+| numeric      | string  | null: false  |
+| budget       | integer | null: false  |
+| payment      | string  | null: false  |
 
 ### Association
 
