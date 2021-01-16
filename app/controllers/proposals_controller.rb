@@ -24,6 +24,16 @@ class ProposalsController < ApplicationController
 
   private
   def proposal_params
-    params.require(:proposal).permit(:title, user_ids: [])
+    params.require(:proposal).permit(
+      :title, 
+      :detail, 
+      :term_start, 
+      :term_end, 
+      :target_group, 
+      :numeric, 
+      :budget, 
+      :payment, 
+      user_ids: []
+    )
   end
 end

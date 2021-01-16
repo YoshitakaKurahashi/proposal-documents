@@ -23,7 +23,7 @@
 | Column       | Type    | Options      |
 | ------------ | --------| ------------ |
 | title        | string  | null: false  |
-| detail       | string  | null: false  |
+| detail       | text    | null: false  |
 | term_start   | date    | null: false  |
 | term_end     | date    | null: false  |
 | target_group | string  | null: false  |
