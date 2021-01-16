@@ -11,7 +11,7 @@
           <div class="card mt-4 mx-3" style="width: 20rem;">
             <%# <img src="https://picsum.photos/80/50" class="card-img-top" alt="PDF"> %>
             <div class="card-body">
-              <h7 class="card-title">タイトル：</br><%= link_to proposal_path(proposal.id), class: "proposal-tag" do %><%= proposal.title %><% end %></h7>
+              <p class="card-title">タイトル：<br><%= link_to proposal_path(proposal.id), class: "proposal-tag" do %><%= proposal.title %><% end %></p>
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item list-contet">作成者： <%=link_to proposal.users[0].name, "#", class: "proposal-tag" %></li>

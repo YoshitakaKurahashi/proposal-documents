@@ -22,6 +22,19 @@ class ProposalsController < ApplicationController
     @proposal = Proposal.find(params[:id])
   end
 
+  def edit
+    @proposal = Proposal.find(params[:id])
+  end
+  
+  def updata
+    @proposal = Proposal.find(params[:id])
+    if @proposal.update(proposal_params)
+      redirect_to proposal_path
+    else
+      render :edit
+    end
+  end
+
   private
   def proposal_params
     params.require(:proposal).permit(

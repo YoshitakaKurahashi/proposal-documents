@@ -1,75 +1,77 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-3 mt-3">
       法人営業部 第3チーム
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 mt-3">
       作成者：<%= @proposal.users[0].name%>さん
     </div>
   </div>
   <div class="row">
-    <div class="col-md-5 show-header1">
-      <table class="mt-4 table table-bordered">
+    <div class="col-md-5 mt-3 show-header1">
+      <table class="mt-2 table table-bordered">
         <tbody>
           <tr>
-            <td class="check-box1">・・・・</td>
-            <td class="check-box1">・・・・</td>
-            <td class="check-box1">・・・・</td>
-            <td class="check-box1">・・・・</td>
+            <td class="col-3 check-box1"><%= @proposal.users[1].position.name %></td>
+            <td class="col-3 check-box1"><%= @proposal.users[2].position.name %></td>
+            <td class="col-3 check-box1"><%= @proposal.users[3].position.name %></td>
+            <td class="col-3 check-box1"><%= @proposal.users[4].position.name %></td>
           </tr>
           <tr>
-            <td class="check-box1">・・・・</td>
-            <td class="check-box1">・・・・</td>
-            <td class="check-box1">・・・・</td>
-            <td class="check-box1">・・・・</td>
+            <td class="col-3 check-box1"><%= @proposal.users[1].name %></td>
+            <td class="col-3 check-box1"><%= @proposal.users[2].name %></td>
+            <td class="col-3 check-box1"><%= @proposal.users[3].name %></td>
+            <td class="col-3 check-box1"><%= @proposal.users[4].name %></td>
           </tr>
           <tr>
-            <td class="check-box2">・・・・</td>
-            <td class="check-box2">・・・・</td>
-            <td class="check-box2">・・・・</td>
-            <td class="check-box2">・・・・</td>
+            <td class="col-3 check-box2">未</td>
+            <td class="col-3 check-box2">未</td>
+            <td class="col-3 check-box2">完了</td>
+            <td class="col-3 check-box2">完了</td>
           </tr>
         </tbody>
       </table>
     </div>
     <div class="col-md-7 show-header2">
-      <button type="button" class="mx-2 btn btn-light">編集</button>
-      <button type="button" class="mx-2 btn btn-light">削除</button>
-      <button type="button" class="mx-2 btn btn-secondary">戻る</button>
+      <% if user_signed_in? && current_user.id == @proposal.users[0].id %>
+        <button type="button" class="mx-2 btn btn-light"><%= link_to "編集", , class: "user-btn" %></button>
+        <button type="button" class="mx-2 btn btn-light">削除</button>
+      <% end %>
+      <button type="button" class="mx-2 btn btn-secondary"><%= link_to "戻る", root_path, class: "user-btn" %></button>
     </div>
   </div>
 
-  <div class="row mt-3">
-    <div class="col-md-12">
+  <div class="row mt-2">
+    <div class="col-md-12">提案書詳細
       <table class="table table-bordered">
         <tbody>
           <tr>
-            <th class="detail-title">タイトル：</td>
-            <td class="detail-value">・・・・</td>
+            <td class="detail-title">タイトル：</td>
+            <td class="detail-value"><%= @proposal.title %></td>
           </tr>
           <tr>
-            <th class="detail-title">内容：</td>
-            <td class="detail-value">・・・・</td>
+            <td class="detail-title">内容：</td>
+            <td class="detail-value"><%= @proposal.detail %></td>
           </tr>
           <tr>
-            <th class="detail-title">期間：</td>
-            <td class="detail-value">・・・・</td>
+            <td class="detail-title">期間：</td>
+            <td class="detail-value"><%= @proposal.term_start.strftime('%Y年%m月%d日') %>  -  <%= @proposal.term_end.strftime('%Y年%m月%d日') %></td>
           </tr>
           <tr>
-            <th class="detail-title">対象者：</td>
-            <td class="detail-value">・・・・</td>
+            <td class="detail-title">対象者：</td>
+            <td class="detail-value"><%= @proposal.target_group %></td>
           </tr>
           <tr>
-            <th class="detail-title">目標：</td>
-            <td class="detail-value">・・・・</td>
+            <td class="detail-title">目標：</td>
+            <td class="detail-value"><%= @proposal.numeric %></td>
           </tr>
           <tr>
-            <th class="detail-title">予算：</td>
-            <td class="detail-value">・・・・</td>
+            <td class="detail-title">予算：</td>
+            <td class="detail-value"><%= @proposal.budget.to_s(:delimited) %>円（税抜）</td>
           </tr>
           <tr>
-            <th class="detail-title">費用処理：</td>
-            <td class="detail-value">・・・・</td>
+            <td class="detail-title">費用処理：</td>
+            <td class="detail-value"><%= @proposal.payment %></td>
           </tr>
         </tbody>
       </table>
@@ -77,7 +79,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-12 show-comments">
+    <div class="col-md-12 mt-3 show-comments">
       <%= form_with  do |f| %>
         <div class="field">
           <label for="comment_text">コメント</label>
