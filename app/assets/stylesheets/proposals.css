@@ -54,6 +54,7 @@
 .main {
   height: calc(100vh - 100px);
   overflow: scroll;
+  color: cadetblue;
 }
 .occupation-name {
   color: cadetblue;
@@ -81,4 +82,45 @@
 .user-btn {
   text-decoration: none;
   color: #f8f9fa;
+}
+
+/* --------------詳細画面------------------ */
+.show-header1 {
+  height: 150px;
+}
+.check-box1 {
+  width: auto;
+  height: 20px;
+  border: 1px solid cadetblue;
+  color: cadetblue;
+}
+.check-box2 {
+  width: auto;
+  height: 80px;
+  border: 1px solid cadetblue;
+  color: cadetblue;
+}
+.show-header2 {
+  height: 200px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.detail-title {
+  width: 20%;
+  color: cadetblue;
+  background-color: #c5e0e4;
+  border: 1px solid cadetblue;
+  font-size: 14px;
+  text-align: left;
+}
+.detail-value {
+  width: 80%;
+  color: cadetblue;
+  padding: 20px;
+  border: 1px solid cadetblue;
+  font-size: 14px;
+}
+.show-comments {
+  background-color: rgb(219, 231, 231);
 }
