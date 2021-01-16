@@ -1,22 +1,26 @@
-<div class="occupation-name">
-  <div class="">
-    法人営業部 第3チーム
-  </div>
-</div>
-<div class="card-content">
-  <% @proposals.each do |proposal| %>
-    <div class="card-name">
-      <div class="card mt-4 mx-3" style="width: 20rem;">
-        <%# <img src="https://picsum.photos/80/50" class="card-img-top" alt="PDF"> %>
-        <div class="card-body">
-          <h7 class="card-title">タイトル：</br><%= link_to proposal_path(proposal.id), class: "proposal-tag" do %><%= proposal.title %><% end %></h7>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item list-contet">作成者： <%=link_to proposal.users[0].name, "#", class: "proposal-tag" %></li>
-          <li class="list-group-item list-contet">作成日： <%= proposal.created_at.strftime('%Y年%m月%d日') %></li>
-          <li class="list-group-item list-contet">完了日： 202x年xx月xx日</li>
-        </ul>
+<div class="container">
+  <div class="row">
+    <div class="occupation-name">
+      <div class="">
+        法人営業部 第3チーム
       </div>
     </div>
-  <% end %>
+    <div class="card-content">
+      <% @proposals.each do |proposal| %>
+        <div class="card-name">
+          <div class="card mt-4 mx-3" style="width: 20rem;">
+            <%# <img src="https://picsum.photos/80/50" class="card-img-top" alt="PDF"> %>
+            <div class="card-body">
+              <h7 class="card-title">タイトル：</br><%= link_to proposal_path(proposal.id), class: "proposal-tag" do %><%= proposal.title %><% end %></h7>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item list-contet">作成者： <%=link_to proposal.users[0].name, "#", class: "proposal-tag" %></li>
+              <li class="list-group-item list-contet">作成日： <%= proposal.created_at.strftime('%Y年%m月%d日') %></li>
+              <li class="list-group-item list-contet">完了日： 202x年xx月xx日</li>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
