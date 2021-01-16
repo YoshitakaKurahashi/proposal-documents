@@ -35,6 +35,12 @@ class ProposalsController < ApplicationController
     end
   end
 
+  def destroy
+    @proposal = Proposal.find(params[:id])
+    @proposal.destroy
+    redirect_to root_path
+  end
+
   private
   def proposal_params
     params.require(:proposal).permit(
