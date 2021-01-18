@@ -20,6 +20,8 @@ class ProposalsController < ApplicationController
 
   def show
     @proposal = Proposal.find(params[:id])
+    @comment = Comment.new
+    @comments = @proposal.comments.includes(:user)
   end
 
   def edit
@@ -55,4 +57,5 @@ class ProposalsController < ApplicationController
       user_ids: []
     )
   end
+
 end

@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :user_proposals
   has_many :proposals, through: :user_proposals
   has_many :comments
+  has_many :likes
 
   extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to :occupation

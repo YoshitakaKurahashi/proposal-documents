@@ -111,24 +111,28 @@
 
   <div class="row">
     <div class="col-md-12 mt-3 show-comments">
-      <%= form_with  do |f| %>
-        <div class="field">
-          <label for="comment_text">コメント</label>
-          <br>
-          <input type="text" name="comment[text]" id="comment_text">
-        </div>
-        <div class="actions">
-          <input type="submit" name="commit" value="送信する " class="form_btn" data-disable-with="送信する">
+      <% if user_signed_in? && @proposal.users.include?(current_user) %>
+        <%= form_with(model: [@proposal, @comment], local: true) do |form| %>
+          <%= form.text_area :comment, class: "mt-3 form-control", placeholder: "コメントする", rows: "2" %>
+          <%= form.submit "プッシュ", class: "mt-3 mx-2 btn btn-outline-secondary" %>
+        <% end %>
+        <div class="mt-3 comments_list">
+        <div class="comment-title">< コメント一覧 ></div>
+        <% @comments.reverse_each do |comment| %>
+          <div>
+            <div class="mt-2 comment-comment">
+              <%= comment.comment %>
+            </div>
+            <div class="comment-info">
+              (<%= comment.user.name %>:<%= comment.created_at.strftime('%Y年%m月%d日') %>)
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="my-3 mx-3">
+          <p>※※※ コメントの閲覧/投稿は決裁メンバーのみ可能です ※※※</p>
         </div>
       <% end %>
-      <ul class="comments_list">
-        <li>Hello world! (hoge:2021/01/16 12:22:22)</li>
-        <li>Hello world! (hoge:2021/01/16 12:22:22)</li>
-        <li>Hello world! (hoge:2021/01/16 12:22:22)</li>
-        <li>Hello world! (hoge:2021/01/16 12:22:22)</li>
-        <li>Hello world! (hoge:2021/01/16 12:22:22)</li>
-        <li>Hello world! (hoge:2021/01/16 12:22:22)</li>
-      </ul>
-    </div>
+    </div>  
   </div>
 </div>

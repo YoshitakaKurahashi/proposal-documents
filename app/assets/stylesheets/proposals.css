@@ -120,3 +120,14 @@
 .show-comments {
   background-color: rgb(219, 231, 231);
 }
+/* --------------コメント画面------------------ */
+.comment-info {
+  color: rgb(190, 189, 189);
+}
+.comment-comment {
+  color: rgb(141, 140, 140);
+}
+.comment-title {
+  color: rgb(141, 140, 140);
+  font-size: 18px;
+}
