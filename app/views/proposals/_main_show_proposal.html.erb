@@ -9,7 +9,7 @@
   </div>
   <div class="row">
     <div class="col-md-5 mt-3 show-header1">
-      <table class="mt-2 table table-bordered">
+      <table class="mt-3 table table-bordered">
         <tbody>
           <tr>
             <td class="col-3 check-box">
@@ -84,7 +84,7 @@
         <button type="button" class="mx-2 btn btn-secondary"><%= link_to "編集", edit_proposal_path, class: "user-btn" %></button>
         <button type="button" class="mx-2 btn btn-secondary"><%= link_to '削除', proposal_path(@proposal.id), method: :delete, class: "user-btn" %></button>
       <% end %>
-      <% if user_signed_in? && @proposal.users.include?(current_user) %>
+      <% if user_signed_in? && @proposal.users.include?(current_user) && @proposal.users[0].id != current_user.id %>
         <% if current_user.liked_by?(@proposal.id) %>
           <button type="button" class="mx-2 btn btn-warning"><%= link_to "確認取消し", destroy_like_path(@proposal), method: :DELETE, class: "user-btn" %></button>
         <% else %>
@@ -95,7 +95,7 @@
     </div>
   </div>
 
-  <div class="row mt-2">
+  <div class="row mt-5">
     <div class="col-md-12">提案書詳細
       <table class="table table-bordered">
         <tbody>
@@ -133,7 +133,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-12 mt-3 show-comments">
+    <div class="col-md-12 mt-5 show-comments">
       <% if user_signed_in? && @proposal.users.include?(current_user) %>
         <%= form_with(model: [@proposal, @comment], local: true) do |form| %>
           <%= form.text_area :comment, class: "mt-3 form-control", placeholder: "コメントする", rows: "2" %>
