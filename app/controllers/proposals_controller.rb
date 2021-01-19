@@ -22,6 +22,8 @@ class ProposalsController < ApplicationController
     @proposal = Proposal.find(params[:id])
     @comment = Comment.new
     @comments = @proposal.comments.includes(:user)
+    @like = Like.new
+    @likes = @proposal.likes.includes(:user)
   end
 
   def edit

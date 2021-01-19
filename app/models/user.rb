@@ -19,4 +19,8 @@ class User < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to :occupation
     belongs_to :position
+
+  def liked_by?(proposal_id)
+    likes.where(proposal_id: proposal_id).exists?
+  end 
 end

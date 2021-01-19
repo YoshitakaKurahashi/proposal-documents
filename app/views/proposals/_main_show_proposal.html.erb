@@ -55,10 +55,26 @@
               <% end %>
             </tr>
           <tr>
-            <td class="col-3 check-box">未</td>
-            <td class="col-3 check-box">未</td>
-            <td class="col-3 check-box">完了</td>
-            <td class="col-3 check-box">完了</td>
+            <% if @proposal.users[1].liked_by?(@proposal.id) %>
+              <td class="col-3 check-box">完了</td>
+            <% else %>
+              <td class="col-3 check-box1">未</td>
+            <% end %>
+            <% if @proposal.users[2].liked_by?(@proposal.id) %>
+              <td class="col-3 check-box">完了</td>
+            <% else %>
+              <td class="col-3 check-box1">未</td>
+            <% end %>
+            <% if @proposal.users[3].liked_by?(@proposal.id) %>
+              <td class="col-3 check-box">完了</td>
+            <% else %>
+              <td class="col-3 check-box1">未</td>
+            <% end %>
+            <% if @proposal.users[4].liked_by?(@proposal.id) %>
+              <td class="col-3 check-box">完了</td>
+            <% else %>
+              <td class="col-3 check-box1">未</td>
+            <% end %>
           </tr>
         </tbody>
       </table>
@@ -67,6 +83,13 @@
       <% if user_signed_in? && current_user.id == @proposal.users[0].id %>
         <button type="button" class="mx-2 btn btn-secondary"><%= link_to "編集", edit_proposal_path, class: "user-btn" %></button>
         <button type="button" class="mx-2 btn btn-secondary"><%= link_to '削除', proposal_path(@proposal.id), method: :delete, class: "user-btn" %></button>
+      <% end %>
+      <% if user_signed_in? && @proposal.users.include?(current_user) %>
+        <% if current_user.liked_by?(@proposal.id) %>
+          <button type="button" class="mx-2 btn btn-warning"><%= link_to "確認取消し", destroy_like_path(@proposal), method: :DELETE, class: "user-btn" %></button>
+        <% else %>
+          <button type="button" class="mx-2 btn btn-warning"><%= link_to "確認済み", create_like_path(@proposal), method: :POST, class: "user-btn" %></button>
+        <% end %>
       <% end %>
       <button type="button" class="mx-2 btn btn-secondary"><%= link_to "戻る", root_path, class: "user-btn" %></button>
     </div>

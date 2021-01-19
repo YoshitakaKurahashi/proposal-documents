@@ -95,6 +95,16 @@
   color: cadetblue;
   font-size: 4px;
   text-align: center;
+  font-weight: bold;
+}
+.check-box1 {
+  width: 1px;
+  height: 20px;
+  border: 1px solid cadetblue;
+  color: rgb(216, 108, 108);
+  font-size: 4px;
+  font-weight: bold;
+  text-align: center;
 }
 .show-header2 {
   height: 130px;

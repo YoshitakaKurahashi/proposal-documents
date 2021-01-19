@@ -44,12 +44,10 @@ ActiveRecord::Schema.define(version: 2021_01_18_105805) do
   end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "proposal_id"
-    t.bigint "user_id"
+    t.integer "proposal_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["proposal_id"], name: "index_likes_on_proposal_id"
-    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "proposals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -93,8 +91,6 @@ ActiveRecord::Schema.define(version: 2021_01_18_105805) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "proposals"
   add_foreign_key "comments", "users"
-  add_foreign_key "likes", "proposals"
-  add_foreign_key "likes", "users"
   add_foreign_key "user_proposals", "proposals"
   add_foreign_key "user_proposals", "users"
 end
