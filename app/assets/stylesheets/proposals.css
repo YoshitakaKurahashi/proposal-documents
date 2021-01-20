@@ -1,7 +1,9 @@
 /* --------------ヘッダー画面------------------ */
 .header {
-  background-color: #c5e0e4;
-  height: 100px;
+  background-color: white;
+  height: 80px;
+  border-bottom: 1px solid black;
+  
 }
 .nav {
   display: flex;
@@ -14,19 +16,25 @@
   align-items: center;
 }
 .rogo {
-  font-size: 25px;
-  font-family: 'Londrina Shadow', cursive;
+  font-size: 35px;
+  text-decoration: none;
+  color: black;
+  font-family: 'Cherry Swash', cursive;
 }
 .occupation-head {
-  color: cadetblue;
+  color: black;
   font-size: 18px;
 }
+.user-log {
+  color: black;
+  text-decoration: none;
 
+}
 
 /* --------------サイド画面------------------ */
 .side-bar {
-  background-color: #f8f9fa;
-  height: calc(100vh - 100px);
+  background-color:whitesmoke;
+  height: calc(100vh - 80px);
 }
 .side {
   padding: 0 20px;
@@ -38,17 +46,22 @@
 }
 .occupation-name a {
   text-decoration: none;
-  color: cadetblue;
+  color: rgb(99, 98, 98);
   font-size: 15px;
 }
 .proposal-btn {
   margin: 40px 0px 250px 0;
 }
+.proposal-btn a {
+  color: white;
+}
+.proposal-new-btn {
+  color: white;
+}
 .footer {
-  background-color: rgb(246, 248, 246);
   height: 100px;
   width: 100%;
-  color: cadetblue;
+  color: gray;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -57,16 +70,16 @@
 
 /* --------------メイン画面------------------ */
 .main {
-  height: calc(100vh - 100px);
+  height: calc(100vh - 80px);
   overflow: scroll;
-  color: cadetblue;
+  color: black;
 }
 .occupation-name {
-  color: cadetblue;
+  color: black;
   font-size: 20px;
 }
 .card {
-  color: cadetblue;
+  color: black;
 }
 .card-content {
   display: flex;
@@ -75,7 +88,7 @@
 }
 .proposal-tag {
   text-decoration: none;
-  color: cadetblue;
+  color: black;
 }
 .list-ok {
   color: rgb(216, 108, 108);
@@ -83,13 +96,17 @@
 
 /* --------------提案書登録画面------------------ */
 .form {
-  color: cadetblue;
+  color: rgb(87, 87, 87);
 }
 
 /* --------------ログイン・ログアウト・新規登録画面------------------ */
 .user-btn {
   text-decoration: none;
-  color: #f8f9fa;
+  color: rgb(99, 207, 250);
+}
+.user-btn1 {
+  text-decoration: none;
+  color: whitesmoke;
 }
 
 /* --------------詳細画面------------------ */
@@ -99,19 +116,17 @@
 .check-box {
   width: 1px;
   height: 20px;
-  border: 1px solid cadetblue;
-  color: cadetblue;
-  font-size: 4px;
+  border: 1px solid black;
+  color: black;
+  font-size: 5px;
   text-align: center;
-  font-weight: bold;
 }
 .check-box1 {
   width: 1px;
   height: 20px;
-  border: 1px solid cadetblue;
+  border: 1px solid black;
   color: rgb(216, 108, 108);
-  font-size: 4px;
-  font-weight: bold;
+  font-size: 5px;
   text-align: center;
 }
 .show-header2 {
@@ -122,30 +137,30 @@
 }
 .detail-title {
   width: 20%;
-  color: cadetblue;
+  color: black;
   background-color: #c5e0e4;
-  border: 1px solid cadetblue;
+  border: 1px solid darkgray;
   font-size: 15px;
   text-align: left;
 }
 .detail-value {
   width: 80%;
-  color: cadetblue;
+  color: black;
   padding: 20px;
-  border: 1px solid cadetblue;
+  border: 1px solid darkgrey;
   font-size: 15px;
 }
 .show-comments {
-  background-color: rgb(219, 231, 231);
+  background-color: rgb(233, 233, 233);
 }
 /* --------------コメント画面------------------ */
 .comment-info {
-  color: rgb(190, 189, 189);
+  color: rgb(122, 122, 122);
 }
 .comment-comment {
-  color: rgb(141, 140, 140);
+  color: black;
 }
 .comment-title {
-  color: rgb(141, 140, 140);
+  color: rgb(61, 61, 61);
   font-size: 18px;
 }

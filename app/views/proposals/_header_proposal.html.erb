@@ -1,35 +1,23 @@
 <div class="nav">
-  <div class="nav-rogo">
-    <a href="/">
-      <button type="button" class="mt-4 btn btn-success">
-        <div class="rogo">Proposal Documents</div>
-      </button>
-    </a>
+  <div class="nav-rogo mt-3">
+    <%= link_to "Proposal Documents.", root_path, class: "rogo" %>
   </div>
   <% if user_signed_in? %>
     <ul class="list-right">
-      <li>
-        <button type="button" class="user-btn bottom-0 end-0 mt-5 btn btn-secondary btn-sm">
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "user-btn" %>
-        </button>
+      <li class="mt-5 mx-3">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "user-log" %>
       </li>
-      <li>
-        <button type="button" class="user-btn bottom-0 start-0 ms-3 mt-5 btn btn-secondary btn-sm">
-          <%= link_to "#{current_user.name}", "#", class: "user-btn" %>
-        </button>
+      <li class="mt-5 mx-3">
+        <%= link_to "#{current_user.name}", "#", class: "user-log" %>
       </li>
     </ul>
   <% else %>
     <ul class="list-right">
-      <li>
-        <button type="button" class="user-btn bottom-0 end-0 mt-5 btn btn-secondary btn-sm">
-          <%= link_to "ログイン", new_user_session_path, class: "user-btn" %>
-        </button>
+      <li class="mt-5 mx-3">
+        <%= link_to "ログイン", new_user_session_path, class: "user-log" %>
       </li>
-      <li>
-        <button type="button" class="user-btn bottom-0 start-0 ms-3 mt-5 btn btn-secondary btn-sm">
-          <%= link_to "新規登録", new_user_registration_path, class: "user-btn" %>
-        </button>
+      <li class="mt-5 mx-3">
+        <%= link_to "新規登録", new_user_registration_path, class: "user-log" %>
       </li>
     </ul>
   <% end %>
