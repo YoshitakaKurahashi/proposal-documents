@@ -5,14 +5,13 @@ class Proposal < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   with_options presence: true do
-    validates :title,       length: { maximum: 20 }  
-    validates :detail,      length: { maximum: 250 }  
+    validates :title,       length: { maximum: 20 }
+    validates :detail,      length: { maximum: 250 }
     validates :term_start
     validates :term_end
-    validates :target_group 
+    validates :target_group
     validates :numeric
-    validates :budget,      numericality: { only_integer: true }
+    validates :budget, numericality: { only_integer: true }
     validates :payment
   end
-
 end

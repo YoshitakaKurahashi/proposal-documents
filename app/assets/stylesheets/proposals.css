@@ -114,23 +114,23 @@
   height: 130px;
 }
 .check-box {
-  width: 1px;
-  height: 20px;
+  width: 30px;
+  height: 40px;
   border: 1px solid black;
   color: black;
-  font-size: 5px;
+  font-size: 15px;
   text-align: center;
 }
 .check-box1 {
-  width: 1px;
-  height: 20px;
+  width: 30px;
+  height: 40px;
   border: 1px solid black;
   color: rgb(216, 108, 108);
-  font-size: 5px;
+  font-size: 15px;
   text-align: center;
 }
 .show-header2 {
-  height: 130px;
+  height: 20px;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;

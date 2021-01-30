@@ -8,8 +8,24 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-5 mt-3 show-header1">
-      <table class="mt-3 table table-bordered">
+    <div class="col-md-12 show-header2">
+      <% if user_signed_in? && current_user.id == @proposal.users[0].id %>
+        <button type="button" class="mx-2 btn btn-secondary"><%= link_to "編集", edit_proposal_path, class: "user-btn" %></button>
+        <button type="button" class="mx-2 btn btn-secondary"><%= link_to '削除', proposal_path(@proposal.id), method: :delete, class: "user-btn" %></button>
+      <% end %>
+      <% if user_signed_in? && @proposal.users.include?(current_user) && @proposal.users[0].id != current_user.id %>
+        <% if current_user.liked_by?(@proposal.id) %>
+          <button type="button" class="mx-2 btn btn-warning"><%= link_to "確認取消し", destroy_like_path(@proposal), method: :DELETE, class: "user-btn1" %></button>
+        <% else %>
+          <button type="button" class="mx-2 btn btn-warning"><%= link_to "確認済み", create_like_path(@proposal), method: :POST, class: "user-btn1" %></button>
+        <% end %>
+      <% end %>
+      <button type="button" class="mx-2 btn btn-outline-info"><%= link_to "戻る", root_path, class: "user-btn" %></button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 mt-3 show-header1">＜決裁者＞
+      <table class="table table-bordered">
         <tbody>
           <tr>
             <td class="col-3 check-box">
@@ -79,24 +95,10 @@
         </tbody>
       </table>
     </div>
-    <div class="col-md-7 show-header2">
-      <% if user_signed_in? && current_user.id == @proposal.users[0].id %>
-        <button type="button" class="mx-2 btn btn-secondary"><%= link_to "編集", edit_proposal_path, class: "user-btn" %></button>
-        <button type="button" class="mx-2 btn btn-secondary"><%= link_to '削除', proposal_path(@proposal.id), method: :delete, class: "user-btn" %></button>
-      <% end %>
-      <% if user_signed_in? && @proposal.users.include?(current_user) && @proposal.users[0].id != current_user.id %>
-        <% if current_user.liked_by?(@proposal.id) %>
-          <button type="button" class="mx-2 btn btn-warning"><%= link_to "確認取消し", destroy_like_path(@proposal), method: :DELETE, class: "user-btn1" %></button>
-        <% else %>
-          <button type="button" class="mx-2 btn btn-warning"><%= link_to "確認済み", create_like_path(@proposal), method: :POST, class: "user-btn1" %></button>
-        <% end %>
-      <% end %>
-      <button type="button" class="mx-2 btn btn-outline-info"><%= link_to "戻る", root_path, class: "user-btn" %></button>
-    </div>
   </div>
 
-  <div class="row mt-4">
-    <div class="col-md-12">提案書詳細
+  <div class="row mt-5">
+    <div class="col-md-12">＜提案書詳細＞
       <table class="table table-bordered">
         <tbody>
           <tr>
@@ -132,7 +134,7 @@
     </div>
   </div>
 
-  <div class="row mt-4 mx-1">コメント
+  <div class="row mt-4 mx-1">＜コメント＞
     <div class="col-md-12 show-comments">
       <% if user_signed_in? && @proposal.users.include?(current_user) %>
         <%= form_with(model: [@proposal, @comment], local: true) do |form| %>

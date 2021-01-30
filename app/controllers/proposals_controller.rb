@@ -1,5 +1,4 @@
 class ProposalsController < ApplicationController
-
   def index
     @proposals = Proposal.all.order('created_at DESC')
   end
@@ -29,7 +28,7 @@ class ProposalsController < ApplicationController
   def edit
     @proposal = Proposal.find(params[:id])
   end
-  
+
   def update
     @proposal = Proposal.find(params[:id])
     if @proposal.update(proposal_params)
@@ -46,18 +45,18 @@ class ProposalsController < ApplicationController
   end
 
   private
+
   def proposal_params
     params.require(:proposal).permit(
-      :title, 
-      :detail, 
-      :term_start, 
-      :term_end, 
-      :target_group, 
-      :numeric, 
-      :budget, 
-      :payment, 
+      :title,
+      :detail,
+      :term_start,
+      :term_end,
+      :target_group,
+      :numeric,
+      :budget,
+      :payment,
       user_ids: []
     )
   end
-
 end
