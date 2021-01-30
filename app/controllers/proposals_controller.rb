@@ -1,4 +1,6 @@
 class ProposalsController < ApplicationController
+  before_action :set_proposal, only: [:show, :edit, :update, :destroy]
+
   def index
     @proposals = Proposal.all.order('created_at DESC')
   end
@@ -18,7 +20,6 @@ class ProposalsController < ApplicationController
   end
 
   def show
-    @proposal = Proposal.find(params[:id])
     @comment = Comment.new
     @comments = @proposal.comments.includes(:user)
     @like = Like.new
@@ -26,11 +27,9 @@ class ProposalsController < ApplicationController
   end
 
   def edit
-    @proposal = Proposal.find(params[:id])
   end
 
   def update
-    @proposal = Proposal.find(params[:id])
     if @proposal.update(proposal_params)
       redirect_to proposal_path
     else
@@ -39,7 +38,6 @@ class ProposalsController < ApplicationController
   end
 
   def destroy
-    @proposal = Proposal.find(params[:id])
     @proposal.destroy
     redirect_to root_path
   end
@@ -59,4 +57,9 @@ class ProposalsController < ApplicationController
       user_ids: []
     )
   end
+
+  def set_proposal
+    @proposal = Proposal.find(params[:id])
+  end
+
 end
