@@ -5,7 +5,7 @@ class Occupation < ActiveHash::Base
     { id: 3, name: '法人営業部 第1チーム' },
     { id: 4, name: '法人営業部 第2チーム' },
     { id: 5, name: '法人営業部 第3チーム' },
-    { id: 6, name: '法人営業部 第4チーム' },
+    { id: 6, name: '法人営業部 第4チーム' }
   ]
   include ActiveHash::Associations
   has_many :users
