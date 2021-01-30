@@ -27,71 +27,43 @@
     <div class="col-md-12 mt-3 show-header1">＜決裁者＞
       <table class="table table-bordered">
         <tbody>
+
           <tr>
-            <td class="col-3 check-box">
-              <% if @proposal.users[1] %>
-                <%= @proposal.users[1].position.name %>
-              <% end %>
-            </td>
-            <td class="col-3 check-box">
-              <% if @proposal.users[2] %>
-                <%= @proposal.users[2].position.name %>
-              <% end %>
-            </td>
-            <td class="col-3 check-box">
-              <% if @proposal.users[3] %>
-                <%= @proposal.users[3].position.name %>
-              <% end %>
-            </td>
-            <td class="col-3 check-box">
-              <% if @proposal.users[4] %>
-                <%= @proposal.users[4].position.name %>
-              <% end %>
-            </td>
-          </tr>
-          <tr>
-            <td class="col-3 check-box">
-              <% if @proposal.users[1] %>
-                <%= @proposal.users[1].name %>
-              <% end %>
-            </td>
-            <td class="col-3 check-box">
-              <% if @proposal.users[2] %>
-                <%= @proposal.users[2].name %>
-              <% end %>
-            </td>
-            <td class="col-3 check-box">
-              <% if @proposal.users[3] %>
-                <%= @proposal.users[3].name %>
-              <% end %>
-            </td>
-            <td class="col-3 check-box">
-              <% if @proposal.users[4] %>
-                <%= @proposal.users[4].name %></td>
-              <% end %>
-            </tr>
-          <tr>
-            <% if @proposal.users[1].liked_by?(@proposal.id) %>
-              <td class="col-3 check-box">完了</td>
-            <% else %>
-              <td class="col-3 check-box1">未</td>
-            <% end %>
-            <% if @proposal.users[2].liked_by?(@proposal.id) %>
-              <td class="col-3 check-box">完了</td>
-            <% else %>
-              <td class="col-3 check-box1">未</td>
-            <% end %>
-            <% if @proposal.users[3].liked_by?(@proposal.id) %>
-              <td class="col-3 check-box">完了</td>
-            <% else %>
-              <td class="col-3 check-box1">未</td>
-            <% end %>
-            <% if @proposal.users[4].liked_by?(@proposal.id) %>
-              <td class="col-3 check-box">完了</td>
-            <% else %>
-              <td class="col-3 check-box1">未</td>
+            <% i = 1 %>
+            <% 4.times do %>
+              <td class="col-3 check-box">
+                <% if @proposal.users[i] %>
+                  <%= @proposal.users[i].position.name %>
+                <% end %>
+              </td>
+              <% i += 1 %>
             <% end %>
           </tr>
+
+          <tr>
+            <% i = 1 %>
+            <% 4.times do %>
+              <td class="col-3 check-box">
+                <% if @proposal.users[i] %>
+                  <%= @proposal.users[i].name %>
+                <% end %>
+              </td>
+              <% i += 1 %>
+            <% end %>
+          </tr>
+
+          <tr>
+            <% i = 1 %>
+            <% 4.times do %>
+              <% if @proposal.users[i].liked_by?(@proposal.id) %>
+                <td class="col-3 check-box">完了</td>
+              <% else %>
+                <td class="col-3 check-box1">未</td>
+              <% end %>
+              <% i += 1 %>
+            <% end %>
+          </tr>
+
         </tbody>
       </table>
     </div>
