@@ -1,5 +1,7 @@
 class ProposalsController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :new]
   before_action :set_proposal, only: [:show, :edit, :update, :destroy]
+  before_action :move_to_index, except: [:index, :show, :new, :create]
 
   def index
     @proposals = Proposal.all.order('created_at DESC')
@@ -62,4 +64,7 @@ class ProposalsController < ApplicationController
     @proposal = Proposal.find(params[:id])
   end
 
+  def move_to_index
+    redirect_to action: :index unless user_signed_in? && current_user.id == @proposal.user_ids[0]
+  end
 end
