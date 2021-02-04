@@ -1,24 +1,11 @@
 <div class="side">
-  <div class="occupation">
-    <div class="occupation-name">
-      <a href="#">法人営業部 第1チーム</a>
+  <% Occupation.where.not(id: [1,2]).each do |occupation| %>
+    <div class="occupation">
+      <div class="occupation-name">
+        <a href="#"><%= occupation.name %></a>
+      </div>
     </div>
-  </div>
-  <div class="occupation">
-    <div class="occupation-name">
-      <a href="#">法人営業部 第2チーム</a>
-    </div>
-  </div>
-  <div class="occupation">
-    <div class="occupation-name">
-      <a href="#">法人営業部 第3チーム</a>
-    </div>
-  </div>
-  <div class="occupation">
-    <div class="occupation-name">
-      <a href="#">法人営業部 第4チーム</a>
-    </div>
-  </div>
+  <% end %>
   <div class="proposal-btn">
     <a href="/proposals/new">
       <button type="button" class="btn btn-outline-info">New 提案書</button>
