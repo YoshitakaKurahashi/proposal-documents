@@ -1,42 +1,44 @@
-<div class="contents row">
+<div class="contents">
   <div class="container">
     <h2>Sign up</h2>
     <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
       <%= devise_error_messages! %>
 
       <div class="field">
-        <%= f.label :name %><br />
-        <%= f.text_field :name %>
+        <%= f.label :name %><br>
+        <%= f.text_field :name, placeholder: "例）加藤ローサ" %>
       </div>
       
       <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email %>
+        <%= f.label :email %><br>
+        <%= f.email_field :email, placeholder: "例）makonari@com" %>
       </div>  
 
       <div class="field">
         <%= f.label :password %>
         <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
+        <% end %><br>
+        <%= f.password_field :password, autocomplete: "off", placeholder: "password" %>
       </div>
 
       <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        <%= f.label :password_confirmation %><br>
+        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "password" %>
       </div>
 
       <div class="field">
-        <%= f.label :phone_number %><br />
-        <%= f.text_field :phone_number %>
+        <%= f.label :phone_number %><br>
+        <%= f.text_field :phone_number, placeholder: "09012345678" %>
       </div>
 
       <div class="field">
+        <%= f.label :occupation_id %><br>
         <%= f.collection_select(:occupation_id, Occupation.all, :id, :name, {}, {class:"select-box", id:"occupation"}) %>
       </div>
 
       <div class="field">
+        <%= f.label :position_id %><br>
         <%= f.collection_select(:position_id, Position.all, :id, :name, {}, {class:"select-box", id:"position"}) %>
       </div>
 
